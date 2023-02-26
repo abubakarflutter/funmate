@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "171394862270",
+    "project_id": "funmate-3119e",
+    "storage_bucket": "funmate-3119e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171394862270:android:d2537b8a346e33bad6a2ef",
+        "android_client_info": {
+          "package_name": "com.abubabakrflutter.funmate.funmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171394862270-lng0tvhnvlosqckj1nsqc0ic510hvadf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCadAzCbDWxrbACo7McmJFeUEW20A63lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171394862270-lng0tvhnvlosqckj1nsqc0ic510hvadf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
