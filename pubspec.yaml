@@ -25,6 +25,7 @@ dependencies:
   flutter_svg:
   flutter_vector_icons:
   image_picker:
+  video_compress:
   video_player:
 
 dev_dependencies:
