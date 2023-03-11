@@ -29,12 +29,7 @@ class MyApp extends StatelessWidget {
         builder: (context , child) {
           return GetMaterialApp(
               debugShowCheckedModeBanner: false,
-              // home: SignupPage(),
-              home: Container(),
-              // // initialRoute: PageRoutes.userSplash,
-              // getPages: routes(),
-              // themeMode: ThemeMode.light,
-              // theme: lightTheme(),
+              home: LoginPage(),
             theme: ThemeData(
               primarySwatch: kCustomBlueColor,
             ),
