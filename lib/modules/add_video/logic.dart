@@ -9,7 +9,7 @@ import 'package:funmate/modules/add_video/view_confirm_upload.dart';
 import 'package:funmate/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-// import 'package:video_';
+import 'package:video_compress/video_compress.dart';
 
 import '../../common_widgets/custom_snackbar_styling.dart';
 import 'state.dart';
@@ -23,9 +23,9 @@ class AddVideoLogic extends GetxController {
   TextEditingController captionTextController = TextEditingController();
 
 
-
+  late dynamic pickedVideo;
   videoPickerFunction({required ImageSource source}) async {
-    final pickedVideo = await ImagePicker().pickVideo(source: source);
+    pickedVideo = await ImagePicker().pickVideo(source: source);
     if(pickedVideo != null){
       Get.to(ConfirmUploadPage(
         pickedVideo: File(pickedVideo.path),
@@ -40,7 +40,7 @@ class AddVideoLogic extends GetxController {
   }
 
   uploadVideoFunction() async {
-
+log('on the way');
     try {
      String uid = firebaseAuth.currentUser!.uid;
      DocumentSnapshot userDocSnap = await fireStore.collection('users').doc(uid).get();
@@ -77,8 +77,9 @@ class AddVideoLogic extends GetxController {
     return await snapshot.ref.getDownloadURL();
   }
 
-  _compressTheVideo(){
-    VideoCompress
+  _compressTheVideo() async {
+    final compressedVideo = await VideoCompress.compressVideo(pickedVideo.path, quality: VideoQuality.MediumQuality);
+    return compressedVideo!.file;
   }
 
   _uploadThumbnailToStorage({required String vidId}) async {
@@ -88,8 +89,9 @@ class AddVideoLogic extends GetxController {
     return await snapshot.ref.getDownloadURL();
   }
 
-  _createThumbnail(){
-    // final
+  _createThumbnail() async {
+    final videoThumbnail = await VideoCompress.getFileThumbnail(pickedVideo.path);
+    return videoThumbnail;
   }
 
 }

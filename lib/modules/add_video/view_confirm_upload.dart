@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -42,7 +40,7 @@ class _ConfirmUploadPageState extends State<ConfirmUploadPage> {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('Confirm Video'),
+        title: const Text('Confirm Video'),
         centerTitle: true,
       ),
 
@@ -115,6 +113,7 @@ class _ConfirmUploadPageState extends State<ConfirmUploadPage> {
             child: AnimatedButton(
               text: 'Confirm & Share',
               onPress: (){
+                logic.uploadVideoFunction();
               },
             ),
           )
