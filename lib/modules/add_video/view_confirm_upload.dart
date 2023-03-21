@@ -35,6 +35,15 @@ class _ConfirmUploadPageState extends State<ConfirmUploadPage> {
     _controller.setLooping(true);
   }
 
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +73,7 @@ class _ConfirmUploadPageState extends State<ConfirmUploadPage> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 20.w,
                     height: MediaQuery.of(context).size.height / 2,
-                    child: VideoPlayer(_controller),
+                    // child: VideoPlayer(_controller),
                   ),
 
                   SizedBox(

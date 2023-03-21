@@ -13,18 +13,18 @@ class GeneralController extends GetxController {
   @override
   void onReady() {
     // TODO: implement onReady
-   _user = Rx<User?>(firebaseAuth.currentUser!);
+   _user = Rx<User?>(firebaseAuth.currentUser);
    _user!.bindStream(firebaseAuth.authStateChanges());
     ever(_user!, _setInitialScreen);
     super.onReady();
   }
 
    _setInitialScreen(User? user){
-       if(user == null){
+       if(firebaseAuth.currentUser == null || user == null){
          Get.offAll(LoginPage());
 
        } else {
-         Get.offAll(HomePage());
+         Get.offAll(const HomePage());
        }
    }
 
