@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:funmate/modules/home/view.dart';
 import 'package:funmate/modules/login/view.dart';
 import 'package:funmate/utils/constants.dart';
 import 'package:get/get.dart';
+import '../modules/bottom_nav_bar/view.dart';
 
 
 class GeneralController extends GetxController {
@@ -24,7 +24,7 @@ class GeneralController extends GetxController {
          Get.offAll(LoginPage());
 
        } else {
-         Get.offAll(const HomePage());
+         Get.offAll(BottomNavBarPage());
        }
    }
 

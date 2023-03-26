@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:funmate/utils/constants.dart';
 import 'package:get/get.dart';
-import '../../common_widgets/custom_animated_button.dart';
-import '../../common_widgets/custom_text_field.dart';
+import '../../custom_widgets/custom_animated_button.dart';
+import '../../custom_widgets/custom_text_field.dart';
 import 'logic.dart';
 
 class SignupPage extends StatelessWidget {

@@ -6,8 +6,7 @@ import 'package:funmate/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../common_widgets/custom_snackbar_styling.dart';
-import '../home/view.dart';
+import '../../custom_widgets/custom_snackbar_styling.dart';
 import 'state.dart';
 
 class SignupLogic extends GetxController {

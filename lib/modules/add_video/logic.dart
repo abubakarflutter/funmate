@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,13 +9,13 @@ import 'package:funmate/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_compress/video_compress.dart';
-
-import '../../common_widgets/custom_snackbar_styling.dart';
+import '../../custom_widgets/custom_loader.dart';
+import '../../custom_widgets/custom_snackbar_styling.dart';
 import 'state.dart';
 
 class AddVideoLogic extends GetxController {
   final AddVideoState state = AddVideoState();
-
+  final CustomLoader loader = CustomLoader();
   TextEditingController songNameTextController = TextEditingController();
   TextEditingController captionTextController = TextEditingController();
 
@@ -68,12 +67,19 @@ class AddVideoLogic extends GetxController {
           .doc("VIDEO $length")
           .set(modelVideo.toJson());
 
+      loader.hideLoader();
+
       customSnackBar(
         title: 'Congratulations',
         message: 'Video has been shared successfully',
       );
     } catch (e) {
+      loader.hideLoader();
       log("Error $e");
+      customSnackBar(
+        title: 'Error Uploading Video',
+        message: '$e',
+      );
     }
   }
 
@@ -86,7 +92,7 @@ class AddVideoLogic extends GetxController {
 
   _compressTheVideo() async {
     final compressedVideo = await VideoCompress.compressVideo(pickedVideo.path,
-        quality: VideoQuality.MediumQuality);
+        quality: VideoQuality.LowQuality);
     return compressedVideo!.file;
   }
 

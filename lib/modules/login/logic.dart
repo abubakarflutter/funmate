@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:funmate/modules/home/view.dart';
 import 'package:get/get.dart';
-
-import '../../common_widgets/custom_snackbar_styling.dart';
+import '../../custom_widgets/custom_snackbar_styling.dart';
 import '../../utils/constants.dart';
 import 'state.dart';
 

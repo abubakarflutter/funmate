@@ -4,10 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
-// import 'package:pl;
-
-import '../../common_widgets/custom_animated_button.dart';
-import '../../common_widgets/custom_text_field.dart';
+import '../../custom_widgets/custom_animated_button.dart';
+import '../../custom_widgets/custom_text_field.dart';
 import 'logic.dart';
 
 class ConfirmUploadPage extends StatefulWidget {
@@ -38,7 +36,6 @@ class _ConfirmUploadPageState extends State<ConfirmUploadPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _controller.dispose();
   }
@@ -122,6 +119,7 @@ class _ConfirmUploadPageState extends State<ConfirmUploadPage> {
             child: AnimatedButton(
               text: 'Confirm & Share',
               onPress: (){
+                logic.loader.showLoader(context);
                 logic.uploadVideoFunction();
               },
             ),
