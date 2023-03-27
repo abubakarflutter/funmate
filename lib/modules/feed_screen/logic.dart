@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:funmate/general_controller/general_controller.dart';
 import 'package:funmate/utils/constants.dart';
 import 'package:get/get.dart';
 
@@ -28,4 +29,25 @@ class FeedScreenLogic extends GetxController {
       return retrievedVideo;
     }));
   }
+
+
+
+  likeVideoFunc(dynamic docId) async {
+    DocumentSnapshot doc = await fireStore.collection('videos').doc(docId).get();
+    if((doc.data() as dynamic)['likes'].contains(GeneralController.to.user.uid)) {
+       await doc.reference.update(
+         {
+         'likes': FieldValue.arrayRemove([GeneralController.to.user.uid])
+         }
+       );
+    } else {
+      await doc.reference.update({
+        'likes': FieldValue.arrayUnion([GeneralController.to.user.uid])
+      });
+    }
+
+  }
+
+
+
 }

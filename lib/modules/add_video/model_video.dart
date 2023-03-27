@@ -43,9 +43,9 @@ class ModelVideo{
   static ModelVideo fromSnap(DocumentSnapshot documentSnapshot) {
     var doc = documentSnapshot.data() as Map<String, dynamic>;
     return ModelVideo(
-      userName: doc['email'],
-      uid: doc['name'],
-      id: doc['profile_photo'],
+      userName: doc['username'],
+      uid: doc['uid'],
+      id: doc['id'],
       likes: doc['likes'],
       commentCount: doc['comment_count'],
       songName: doc['song_name'],

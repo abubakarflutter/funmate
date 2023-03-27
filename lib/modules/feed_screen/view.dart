@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:funmate/custom_widgets/custom_thumbnail_rotation.dart';
 import 'package:funmate/custom_widgets/single_video_player.dart';
+import 'package:funmate/general_controller/general_controller.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -103,6 +104,7 @@ class FeedScreenPage extends StatelessWidget {
                                       .of(context)
                                       .size
                                       .height / 2.6,
+                                  right: 10
                                 ),
                                 child: Column(
 
@@ -133,7 +135,7 @@ class FeedScreenPage extends StatelessWidget {
                                         Positioned(
                                           bottom: -8,
                                           child: Container(
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 vertical: 4,
                                                 horizontal: 4
                                             ),
@@ -142,7 +144,7 @@ class FeedScreenPage extends StatelessWidget {
                                                 borderRadius: BorderRadius
                                                     .circular(50)
                                             ),
-                                            child: Icon(
+                                            child: const Icon(
                                               Icons.add,
                                               size: 10,
                                               color: Colors.white,
@@ -154,29 +156,30 @@ class FeedScreenPage extends StatelessWidget {
                                     ),
 
                                     //--- Like Button
-                                    Column(
-                                      children: [
-
-                                        const Icon(
-                                          Icons.favorite,
-                                          color: Colors.red,
-                                          size: 35,
-                                        ),
-                                        Text(
-                                          (videoItem.likes ?? []).length.toString(),
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w400
+                                    GestureDetector(
+                                      onTap: () => logic.likeVideoFunc(videoItem.id),
+                                      child: Column(
+                                        children: [
+                                           Icon(
+                                            Icons.favorite,
+                                            color: (videoItem.likes ?? []).contains(GeneralController.to.user.uid) ? Colors.red : Colors.white,
+                                            size: 35,
                                           ),
-                                        ),
+                                          Text(
+                                            (videoItem.likes ?? []).length.toString(),
+                                            style: GoogleFonts.poppins(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w400
+                                            ),
+                                          ),
 
-                                      ],
+                                        ],
+                                      ),
                                     ),
 
                                     //--- Comment Button
                                     Column(
                                       children: [
-
                                         const Icon(
                                           Icons.chat,
                                           color: Colors.white,

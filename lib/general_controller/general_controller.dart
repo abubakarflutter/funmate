@@ -6,8 +6,11 @@ import '../modules/bottom_nav_bar/view.dart';
 
 
 class GeneralController extends GetxController {
-
+  static GeneralController get to => Get.find();
    Rx<User?>? _user;
+
+
+   User get user => _user!.value!;
 
 
   @override
