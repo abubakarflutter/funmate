@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               home: LoginPage(),
             theme: ThemeData(
+              // useMaterial3: true,
               primarySwatch: kCustomBlueColor,
             ),
               builder: (context, child) {

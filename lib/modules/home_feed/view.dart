@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:funmate/custom_widgets/custom_thumbnail_rotation.dart';
 import 'package:funmate/custom_widgets/single_video_player.dart';
 import 'package:funmate/general_controller/general_controller.dart';
+import 'package:funmate/modules/video_comments/view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -178,21 +179,26 @@ class FeedScreenPage extends StatelessWidget {
                                     ),
 
                                     //--- Comment Button
-                                    Column(
-                                      children: [
-                                        const Icon(
-                                          Icons.chat,
-                                          color: Colors.white,
-                                          size: 25,
-                                        ),
-                                        Text('0',
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w400
+                                    GestureDetector(
+                                      onTap: () => Get.to(VideoCommentsPage(
+                                        docId: videoItem.id!
+                                      )),
+                                      child: Column(
+                                        children: [
+                                          const Icon(
+                                            Icons.chat,
+                                            color: Colors.white,
+                                            size: 25,
                                           ),
-                                        ),
+                                          Text('0',
+                                            style: GoogleFonts.poppins(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w400
+                                            ),
+                                          ),
 
-                                      ],
+                                        ],
+                                      ),
                                     ),
 
                                     //--- Comment Button

@@ -34,8 +34,8 @@ class _AnimatedImageState extends State<AnimatedImage>
               Container(
                   height: 45,
                   width: 45,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(colors: [
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(colors: [
                       Colors.white,
                       Colors.grey
                     ]),

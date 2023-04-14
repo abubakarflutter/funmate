@@ -22,15 +22,15 @@ class _SingleVideoPlayerState extends State<SingleVideoPlayer> {
       // _controller.initialize();
       _controller.play();
       _controller.setVolume(1);
-      _controller.setLooping(true);
+      _controller.setLooping(false);
     });
   }
 
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
 

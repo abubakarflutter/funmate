@@ -12,6 +12,7 @@ class MyCustomTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final TextEditingController? controller;
   final bool? editable , isSecure;
+  final double? textFieldHeigh;
   final Function? onTapFunction, inputValidators;
 
   const MyCustomTextField(
@@ -23,12 +24,14 @@ class MyCustomTextField extends StatelessWidget {
         this.isSecure = false,
         this.prefixIcon,
         this.inputValidators,
+        this.textFieldHeigh,
         this.onTapFunction})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: textFieldHeigh,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
             color: Colors.grey.shade300.withOpacity(.4),
@@ -62,7 +65,7 @@ class MyCustomTextField extends StatelessWidget {
             left: 15.w,
             right: 0.w,
           ),
-          prefixIcon: prefixIcon!,
+          prefixIcon: prefixIcon,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16.r),
             borderSide: const BorderSide(color: Colors.white, width: 1),
